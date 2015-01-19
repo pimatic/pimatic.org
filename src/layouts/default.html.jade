@@ -1,0 +1,108 @@
+- var scripts = getBlock('scripts')
+- var styles = getBlock('styles')
+
+//- Prettify Syntax Highlighting
+- scripts.add(["/vendor/prettify.js"])
+- styles.add(["/vendor/prettify.css"])
+
+//- jQuery
+- scripts.add(["/vendor/jquery/dist/jquery.js"])
+
+//- Bootstrap
+- scripts.add(["/vendor/components-bootstrap/js/bootstrap.js"])
+- styles.add(["/vendor/bootswatch/cerulean/bootstrap.css"])
+
+//- Other Scripts
+- scripts.add(["/vendor/log.js","/vendor/modernizr.js"])
+- scripts.add(["/vendor/scrollnav/jquery.scrollNav.min.js"])
+
+//- User
+- styles.add(["/styles/style.css"])
+- scripts.add(["/scripts/script.js"])
+- scripts.add(["/scripts/piwik.js"])
+if document.layout == 'docs' 
+  - styles.add(["/styles/docs.css"]) 
+
+doctype html
+html(lang="en")
+  head
+
+    // Meta
+    meta(charset="utf-8")
+    meta(http-equiv="content-type", content="text/html; charset=utf-8")
+
+    //-
+      Use the .htaccess and remove these lines to avoid edge case issues.
+      More info: h5bp.com/i/378
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+
+    //- Our site title and description
+    title= getPreparedTitle()
+    meta(name="description", content=getPreparedDescription())
+    meta(name="keywords", content=getPreparedKeywords())
+    meta(name="author", content=site.author || '')
+
+    //- Output DocPad produced meta elements
+    != getBlock('meta').toHTML()
+
+    //- Mobile viewport optimized: h5bp.com/viewport
+    meta(name="viewport", content="width=device-width")
+
+    // Icons
+    link(rel="shortcut icon", href="/ico/favicon.ico")
+    link(rel="icon" sizes="152x152", href="/ico/apple-touch-icon-152x152-precomposed.png")
+    link(rel="apple-touch-icon-precomposed", sizes="152x152", href="/ico/apple-touch-icon-152x152-precomposed.png")
+    link(rel="apple-touch-icon-precomposed", sizes="120x120", href="/ico/apple-touch-icon-120x120-precomposed.png")
+    link(rel="apple-touch-icon-precomposed", sizes="76x76", href="/ico/apple-touch-icon-76x76-precomposed.png")
+    link(rel="apple-touch-icon-precomposed", href="/ico/apple-touch-icon-precomposed.png")
+    //- Shims: IE6-8 support of HTML5 elements
+    //if lt IE 9
+      script(async src="http://html5shim.googlecode.com/svn/trunk/html5.js")
+
+    // Styles
+    != styles.toHTML()
+
+
+  body(class='layout-' + document.layout)
+
+    // Markup
+    nav.navbar.navbar-default.navbar-static-top
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+          a.navbar-brand.logo(href="/") pimatic
+        div.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                  | Guide
+                  b.caret
+                ul.dropdown-menu
+                  each section in ['getting-started', 'usage', 'api', 'development']
+                    - url = "/guide/" + section
+                    - clazz = (document.relativePath.indexOf(url + '/') == 0) ? 'active' : null
+                    li(class=clazz)
+                      a(href=url, property="dc:title")=section
+            each doc in getCollection('pages').toJSON()
+              - clazz = (document.url === doc.url) ? 'active' : null
+              li(typeof="sioc:Page", about=doc.url, class=clazz)
+                a(href=doc.url, property="dc:title")= doc.title
+            li.api
+              a(href="/api/actions") API              
+            li.github
+              a(href="https://github.com/pimatic/pimatic") github
+            li.github-qua
+              a(href="https://github.com/pimatic/pimatic/issues?direction=desc&labels=Q%26A&page=1&sort=created&state=closed") Help
+    .container
+      section#content.content!= content
+      hr
+      footer
+        div= site.copyright
+        div(style="font-style:italic; font-size: 12px") This website was last updated at #{site.date}
+
+    // Scripts
+    != scripts.toHTML()

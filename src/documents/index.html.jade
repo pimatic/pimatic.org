@@ -1,0 +1,59 @@
+--- yaml
+layout: 'default'
+title: 'Home'
+---
+
+// Main hero unit for a primary marketing message or call to action.
+.jumbotron
+  h1 pimatic
+  p smart home automation for the raspberry pi
+  p
+    a.btn.btn-primary(href="guide/getting-started/installation") Installation
+    a.btn(href="/pages/demo") or try the demo!
+// Example row of columns.
+.intro
+  div.first
+    h2 pimatic 
+    :markdown
+      is a home automation framework that runs on [node.js](http://nodejs.org). It provides a 
+      common extensible platform for home control and automation tasks.  
+  div.row
+    div.col-lg-6
+      h4
+        span.glyphicon.glyphicon-list-alt
+        |  Uniform interface
+      :markdown
+        It defines several schemata for different home devices and sensors, so that all devices can be 
+        controled uniform and are presented in a common interface.
+    div.col-lg-6
+      h4
+        span.glyphicon.glyphicon-ok
+        |  Automation by rules
+      :markdown
+        Automation tasks can be defined by rules in the form of "if this then that", where the "this" and 
+        the "that" part can be fully custemized by plugins. See [the rule page](/guide/usage/rules) for 
+        more details.
+    div.col-lg-6
+      h4
+        span.glyphicon.glyphicon-phone
+        |  Web-based
+      :markdown
+        The mobile frontend plugin provides a nice web frontend with a sensor overview, device control and
+        rule definition. The web interface is build using [express](http://expressjs.com) and 
+        [jQuery Mobile](http://jquerymobile.com‎).
+    div.col-lg-6
+      h4
+        span.glyphicon.glyphicon-plus
+        |  Extensible
+      :markdown
+        pimatic is extensible by various plugins adding features and integrating existing hardware and software.
+div.alert.alert-warning
+  strong pimatic has beta status 
+  p 
+  :markdown
+    We are doing our best to get it stable. But be warned that it comes without any guaranty to work. 
+    So you are using it on your own risk. If you want to help make it better please
+    contribute by posting [issues on github](https://github.com/pimatic/pimatic/issues) or get involved with 
+    development.
+
+
