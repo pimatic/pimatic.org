@@ -12,6 +12,9 @@ table
 footer
   padding-bottom: 30px
 
+.shariff
+  margin-bottom: 12px
+
 .intro
   .first
     h2, p
@@ -73,6 +76,9 @@ footer
 @media (max-width: 767px) {
   .navbar-nav .dropdown-header {  
     color: black;
+  }
+  .github-fork-ribbon-wrapper {
+    display: none
   }
 }
 
@@ -140,4 +146,40 @@ footer
     width: 170px;
   }
 
+}
+
+.config-table .config-table {
+  margin-left: 15px;
+  width: 98% !important;
+}
+
+.config-table {
+  border: 1px dashed #ddd;
+}
+
+div.pimatic-config > .table:first > tbody > tr > td > strong {
+  color: #317eac;
+  font-size: 18px;
+}
+
+.table > tbody > tr.even > td{
+  background-color: #f9f9f9;
+}
+
+.config-table > tbody > tr> td.continue {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.config-table > tbody > tr> td.continue > table {
+  margin-top: 10px;
+}
+
+.config-table > tbody > tr > th  {
+ background-color: #f9f9f9;
+ color: gray;
+ padding-top: 4px;
+ padding-bottom: 4px;
+ font-style: italic;
+ font-weight: normal;
 }

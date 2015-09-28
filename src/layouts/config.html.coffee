@@ -3,19 +3,13 @@ layout: default
 ###
 
 fs = @require 'fs'
-
-plugins = @getAllPlugins()
-plugin = null
-for p in plugins
-  if p.name is @document.pluginName
-    plugin = p
-    break
-
+p = @getCore()
+#console.log p
 article id: 'page', =>
   div class: 'page-content', @content
-  div =>
+  div class: 'pimatic-config', =>
     if fs.existsSync(p.compiledConfigSchema)
-      h2 "Plugin Config Options"
+      h2 "Config Options"
       schema = JSON.parse fs.readFileSync(p.compiledConfigSchema).toString()
       text @printConfigShema schema
     if fs.existsSync(p.compiledDeviceConfigSchema)
@@ -27,4 +21,3 @@ article id: 'page', =>
         if device is "title" then continue
         h3 device
         text @printConfigShema config
-  div => "#{p.name} is written by #{@author(p).name}"

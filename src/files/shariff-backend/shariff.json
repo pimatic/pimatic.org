@@ -1,0 +1,12 @@
+{
+	"cache": {
+		"ttl": 60
+	},
+	"domain": "www.pimatic.org",
+	"services": [
+		"GooglePlus",
+		"Twitter",
+		"Facebook",
+		"Reddit"
+	]
+}

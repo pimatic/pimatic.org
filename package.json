@@ -11,6 +11,7 @@
   "dependencies": {
     "bluebird": "^2.3.6",
     "coffee-script": "^1.8.0",
+    "coffeekup": "^0.3.1",
     "decl-api": "0.0.6",
     "docpad": "~6.69.0",
     "docpad-plugin-cleanurls": "~2.7.0",
@@ -37,6 +38,7 @@
     "rimraf": "^2.2.8",
     "rimraf-promise": "^1.0.0",
     "seedrandom": "^2.3.10",
+    "shariff": "^1.18.0",
     "tar": "^1.0.1",
     "tarball-extract": "0.0.3"
   },

@@ -15,6 +15,8 @@
 //- Other Scripts
 - scripts.add(["/vendor/log.js","/vendor/modernizr.js"])
 - scripts.add(["/vendor/scrollnav/jquery.scrollNav.min.js"])
+- scripts.add(["/vendor/shariff/shariff.complete.js"])
+- styles.add(["/vendor/shariff/shariff.complete.css"])
 
 //- User
 - styles.add(["/styles/style.css"])
@@ -55,6 +57,10 @@ html(lang="en")
     link(rel="apple-touch-icon-precomposed", sizes="120x120", href="/ico/apple-touch-icon-120x120-precomposed.png")
     link(rel="apple-touch-icon-precomposed", sizes="76x76", href="/ico/apple-touch-icon-76x76-precomposed.png")
     link(rel="apple-touch-icon-precomposed", href="/ico/apple-touch-icon-precomposed.png")
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css')
+    //if lt IE 9
+      link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css')
+ 
     //- Shims: IE6-8 support of HTML5 elements
     //if lt IE 9
       script(async src="http://html5shim.googlecode.com/svn/trunk/html5.js")
@@ -64,7 +70,9 @@ html(lang="en")
 
 
   body(class='layout-' + document.layout)
-
+    .github-fork-ribbon-wrapper.right
+        .github-fork-ribbon
+            a(href='https://github.com/pimatic/pimatic') Fork me on GitHub
     // Markup
     nav.navbar.navbar-default.navbar-static-top
       .container
@@ -87,6 +95,8 @@ html(lang="en")
                     - clazz = (document.relativePath.indexOf(url + '/') == 0) ? 'active' : null
                     li(class=clazz)
                       a(href=url, property="dc:title")=section
+            li.config
+              a(href="/pages/config") Config
             each doc in getCollection('pages').toJSON()
               - clazz = (document.url === doc.url) ? 'active' : null
               li(typeof="sioc:Page", about=doc.url, class=clazz)
@@ -94,9 +104,9 @@ html(lang="en")
             li.api
               a(href="/api/actions") API              
             li.github
-              a(href="https://github.com/pimatic/pimatic") github
-            li.github-qua
-              a(href="https://github.com/pimatic/pimatic/issues?direction=desc&labels=Q%26A&page=1&sort=created&state=closed") Help
+              a(href="https://github.com/pimatic/pimatic") GitHub
+            li.forum
+              a(href="http://forum.pimatic.org") Forum
     .container
       section#content.content!= content
       hr

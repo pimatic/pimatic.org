@@ -20,7 +20,7 @@ docpadConfig =
       ]
 
       # The default title of our website
-      title: "pimatic"
+      title: "pimatic - smart home automation for the raspberry pi"
 
       # The website description (for SEO)
       description: """
@@ -87,7 +87,11 @@ docpadConfig =
 
     getAllPlugins: ->
       fs = require 'fs'
-      return JSON.parse(fs.readFileSync 'pluginList.json')
+      return JSON.parse(fs.readFileSync 'pluginList.json').filter( (p) -> p.name isnt 'pimatic' )
+
+    getCore: ->
+      fs = require 'fs'
+      return JSON.parse(fs.readFileSync 'pluginList.json').filter( (p) -> p.name is 'pimatic' )[0]
 
     renderActionApi: (section) ->
       declapi = require '../node_modules/pimatic/node_modules/decl-api'
@@ -95,6 +99,50 @@ docpadConfig =
       return declapi.docs().genDocsForActions(api[section].actions)
 
     require: (file) -> require file
+
+    author: (p) ->
+      href = p.author?.url or p.autor_url or p._npmUser.url
+      name = "#{p.author?.name or p.author_name or "?"} (#{p._npmUser.name})"
+      return {href, name}
+
+    printConfigShema: (schema) ->
+      ck = require 'coffeekup'
+      return ck.render( (-> 
+        print = (schema, hidden) ->
+          if schema.title?
+            div schema.title
+          if schema.type is "object" and schema.properties?
+            if Object.keys(schema.properties).length > 0
+              table class:"table config-table #{if hidden then 'hidden'}", ->
+                tr -> 
+                  th "Option"
+                  th "Description"
+                  th "Default"
+                even = false
+                for k, v of schema.properties
+                  evenClass = if even then 'even' else 'odd'
+                  even = not even
+                  tr class: evenClass, ->
+                    td ->
+                      strong k
+                      br()
+                      em (if v.type is "array" and v.items?.type then "array of #{v.items.type}s" else v.type)   
+                    td v.description
+                    td -> 
+                      if v.default?
+                        pre JSON.stringify(v.default, null, "  ")
+                  if (v.type is "object" and v.properties?) or (v.type is "array" and v.items?.type is "object" and v.items.properties? and Object.keys(v.items.properties).length > 0)
+                    tr class: evenClass, -> 
+                      td class:"continue", colspan:3, ->
+                        a class:'toggle-table', ->
+                          i class:'glyphicon glyphicon-chevron-right', ''
+                          if v.type is "object" then em " Properties" else em " Elements"
+                        switch v.type 
+                          when "object" then print v, yes 
+                          when "array" then print v.items, yes
+
+        print @schema, no
+      ), schema: schema)
 
   # Collections
   # ===========

@@ -18,3 +18,14 @@ $ ->
       insertTarget: this.selector,
       insertLocation: 'insertBefore',
     )
+
+  $(".toggle-table").click( ->
+    table = $(this).next()
+    icon = $(this).find('i')
+    if table.hasClass('hidden')
+      table.removeClass('hidden')
+      icon.removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down')
+    else
+      table.addClass('hidden')
+      icon.addClass('glyphicon-chevron-right').removeClass('glyphicon-chevron-down')
+  )
