@@ -5,14 +5,15 @@ docpadConfig =
   # Template Data
   # =============
   # These are variables that will be accessible via our templates
-  # To access one of these within our templates, refer to the FAQ: https://github.com/bevry/docpad/wiki/FAQ
+  # To access one of these within our templates, refer to the FAQ:
+  # https://github.com/bevry/docpad/wiki/FAQ
 
   templateData:
 
     # Specify some site properties
     site:
       # The production url of our website
-      url: "http://pimatic.org"
+      url: "https://pimatic.org"
 
       # Here are some old site urls that you would like to redirect from
       oldUrls: [
@@ -39,7 +40,7 @@ docpadConfig =
       email: "oliverschneider89+pimatic@gmail.com"
 
       # Your company's name
-      copyright: "© Oliver Schneider 2014"
+      copyright: "© Oliver Schneider " + new Date().getUTCFullYear()
 
 
     # Helper Functions
@@ -58,7 +59,8 @@ docpadConfig =
 
     # Get the prepared site/document description
     getPreparedDescription: ->
-      # if we have a document description, then we should use that, otherwise use the site's description
+      # if we have a document description, then we should use that,
+      # otherwise use the site's description
       @document.description or @site.description
 
     # Get the prepared site/document keywords
@@ -66,10 +68,10 @@ docpadConfig =
       # Merge the document keywords with the site keywords
       @site.keywords.concat(@document.keywords or []).join(', ')
 
-    getPlugins: -> 
+    getPlugins: ->
       #plugins = require('fs').readdirSync(__dirname + '/src/documents/docs')
       #plugins = (p for p in plugins when not (p in ['pimatic-plugin-template']))
-      return [ 
+      return [
         "pimatic"
         "pimatic-cron",
         "pimatic-gpio",
@@ -114,7 +116,7 @@ docpadConfig =
           if schema.type is "object" and schema.properties?
             if Object.keys(schema.properties).length > 0
               table class:"table config-table #{if hidden then 'hidden'}", ->
-                tr -> 
+                tr ->
                   th "Option"
                   th "Description"
                   th "Default"
@@ -126,19 +128,25 @@ docpadConfig =
                     td ->
                       strong k
                       br()
-                      em (if v.type is "array" and v.items?.type then "array of #{v.items.type}s" else v.type)   
+                      em (
+                        if v.type is "array" and v.items?.type
+                        then "array of #{v.items.type}s"
+                        else v.type
+                      )
                     td v.description
-                    td -> 
+                    td ->
                       if v.default?
                         pre JSON.stringify(v.default, null, "  ")
-                  if (v.type is "object" and v.properties?) or (v.type is "array" and v.items?.type is "object" and v.items.properties? and Object.keys(v.items.properties).length > 0)
-                    tr class: evenClass, -> 
+                  if (v.type is "object" and v.properties?) or
+                     (v.type is "array" and v.items?.type is "object" and
+                      v.items.properties? and Object.keys(v.items.properties).length > 0)
+                    tr class: evenClass, ->
                       td class:"continue", colspan:3, ->
                         a class:'toggle-table', ->
                           i class:'glyphicon glyphicon-chevron-right', ''
                           if v.type is "object" then em " Properties" else em " Elements"
-                        switch v.type 
-                          when "object" then print v, yes 
+                        switch v.type
+                          when "object" then print v, yes
                           when "array" then print v.items, yes
 
         print @schema, no
@@ -149,7 +157,8 @@ docpadConfig =
   # These are special collections that our website makes available to us
 
   collections:
-    # For instance, this one will fetch in all documents that have pageOrder set within their meta data
+    # For instance, this one will fetch in all documents that have pageOrder 
+    # set within their meta data
     pages: (database) ->
       database.findAllLive({menu: true}, [pageOrder:1,title:1])
 
@@ -195,6 +204,23 @@ docpadConfig =
         branch: 'master'
         url: 'https://github.com/pimatic/pimatic-guide.git'
       ]
+    marked:
+      markedRenderer:
+        table: (header, body) ->
+          """
+          <table class="table table-bordered">
+            <thead>
+              #{header}
+            </thead>
+            <tbody>
+              #{body}
+            </tbody>
+          </table>
+          """
+        image: (href, title, text) ->
+          # TODO: clever handling or relative urls: unless href.match(/https?:\/\//)?
+          """<img src="#{href}" alt="#{text}" #{if title? then 'title="'+title+'"' else ''}>"""
+
 
 # Export our DocPad Configuration
 module.exports = docpadConfig

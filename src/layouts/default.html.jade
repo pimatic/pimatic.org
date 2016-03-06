@@ -6,17 +6,25 @@
 - styles.add(["/vendor/prettify.css"])
 
 //- jQuery
-- scripts.add(["/vendor/jquery/dist/jquery.js"])
+if document.url === '/'
+  - styles.add(['/vendor/owl-carousel2/assets/owl.carousel.min.css']);
+  - styles.add(['/vendor/owl-carousel2/assets/owl.theme.default.min.css']);
+  - scripts.add(["/vendor/shariff/shariff.complete.js"])
+  - styles.add(["/vendor/shariff/shariff.complete.css"])
+else if document.url.indexOf('/donate') >= -1
+  - scripts.add(["/vendor/jquery/dist/jquery.js"])
+  - scripts.add(["/scripts/donate.js"])
+else
+  - scripts.add(["/vendor/jquery/dist/jquery.js"])
 
 //- Bootstrap
 - scripts.add(["/vendor/components-bootstrap/js/bootstrap.js"])
 - styles.add(["/vendor/bootswatch/cerulean/bootstrap.css"])
+- styles.add(["/vendor/font-awesome-4.5.0/css/font-awesome.min.css"])
 
 //- Other Scripts
 - scripts.add(["/vendor/log.js","/vendor/modernizr.js"])
 - scripts.add(["/vendor/scrollnav/jquery.scrollNav.min.js"])
-- scripts.add(["/vendor/shariff/shariff.complete.js"])
-- styles.add(["/vendor/shariff/shariff.complete.css"])
 
 //- User
 - styles.add(["/styles/style.css"])
@@ -87,26 +95,51 @@ html(lang="en")
           ul.nav.navbar-nav
             li.dropdown
               a.dropdown-toggle(href='#', data-toggle='dropdown')
-                  | Guide
-                  b.caret
+                span.fa.fa-book
+                |  Guide
+                b.caret
                 ul.dropdown-menu
-                  each section in ['getting-started', 'usage', 'api', 'development']
-                    - url = "/guide/" + section
+                  - function capitalize(s){ return s.toLowerCase().replace( /\b./g, function(a){ return a.toUpperCase(); } );};
+                  each section in [ ['getting-started', 'Getting Started'], ['usage', 'Usage'], ['api', 'API'], ['development', 'Development']]
+                    - url = "/guide/" + section[0]
+                    - title = section[1]
                     - clazz = (document.relativePath.indexOf(url + '/') == 0) ? 'active' : null
                     li(class=clazz)
-                      a(href=url, property="dc:title")=section
-            li.config
-              a(href="/pages/config") Config
-            each doc in getCollection('pages').toJSON()
-              - clazz = (document.url === doc.url) ? 'active' : null
-              li(typeof="sioc:Page", about=doc.url, class=clazz)
-                a(href=doc.url, property="dc:title")= doc.title
-            li.api
-              a(href="/api/actions") API              
+                      a(href=url, property="dc:title")=title
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                span.fa.fa-file-text
+                |  Docs
+                b.caret
+                ul.dropdown-menu
+                  li.config
+                    a(href="/pages/config")
+                      span.fa.fa-cogs
+                      |  Config
+                  li.api
+                    a(href="/api/actions")
+                      span.fa.fa-code
+                      |  API
+            li.plugins
+              a(href="/pages/plugins")
+               span.fa.fa-plug
+               |  Plugins
+            li.demo
+              a(href="/pages/demo")
+               span.fa.fa-rocket
+               |  Demo
+            li.supportus
+              a(href="/pages/donate")
+                span.fa.fa-heart
+                |  Support Us
             li.github
-              a(href="https://github.com/pimatic/pimatic") GitHub
+              a(href="https://github.com/pimatic/pimatic")
+                span.fa.fa-github
+                |  GitHub
             li.forum
-              a(href="http://forum.pimatic.org") Forum
+              a(href="http://forum.pimatic.org")
+                span.fa.fa-comments
+                |  Forum
     .container
       section#content.content!= content
       hr

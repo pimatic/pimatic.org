@@ -4,6 +4,11 @@ a, a:link
 body
   line-height: 22px
 
+body .h1, body .h3, body .h3, body .h4, body .h5, body .h6,
+body h1, body h2, body h3, body h4, body h5, body h6  {
+    color: #07A2FF;
+}
+
 table
   tfoot, tbody
     th
@@ -14,6 +19,9 @@ footer
 
 .shariff
   margin-bottom: 12px
+
+body .shariff li
+  max-width: 200px;
 
 .intro
   .first
@@ -59,10 +67,10 @@ footer
 /* Customize container */
 @media (min-width: 768px) {
   .layout-default .container, .layout-guide .container, .layout-page .container {
-    max-width: 730px;
+    max-width: 980px;
   }
   .navbar .container {
-    max-width: 730px;
+    max-width: 980px;
   }
 }
 
@@ -74,7 +82,7 @@ footer
 }
 
 @media (max-width: 767px) {
-  .navbar-nav .dropdown-header {  
+  .navbar-nav .dropdown-header {
     color: black;
   }
   .github-fork-ribbon-wrapper {
@@ -82,8 +90,26 @@ footer
   }
 }
 
+@media (max-width: 990px) and (min-width: 768px) {
+  .nav > li > a {
+    padding: 15px 8px;
+  }
+  .navbar-brand {
+    padding: 15px 7px;
+  }
+}
 .container {
   position: relative;
+}
+
+.item .jumbotron {
+  background-color: rgba(235, 244, 255, 0.8);
+  margin-top: 27px;
+  border-radius: 0;
+}
+
+.item .jumbotron h3, .item .jumbotron .h3 {
+  font-size: 34px;
 }
 
 .scroll-nav {
@@ -183,3 +209,60 @@ div.pimatic-config > .table:first > tbody > tr > td > strong {
  font-style: italic;
  font-weight: normal;
 }
+
+#donations {
+  table.stickers{
+    td, th{
+      text-align: center;
+    }
+    th {
+      border: 1px solid #dddddd;
+      border-bottom: none !important;
+    }
+    td {
+      border: 1px solid #dddddd;
+      border-top: 0px !important;
+    }
+
+    .highlight {
+      background-color: #f4f4f4;
+    }
+
+    a {
+      text-decoration: underline dashed;
+    }
+  }
+
+  .color {
+    display: inline-block;
+    width: auto;
+    padding: 0px 5px;
+    border: 1px solid silver;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 80%
+  }
+
+  .images-inside {
+    margin: 0 -10px;
+    margin-top: -20px;
+  }
+
+  .with-image {
+    float: left;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .with-image img {
+    border-radius: 5px;
+    border: 3px solid silver;
+    margin-bottom: 5px;
+  }
+
+  div.disabled {
+    opacity: 0.4;
+  }
+
+}
+

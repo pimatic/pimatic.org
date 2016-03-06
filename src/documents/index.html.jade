@@ -2,17 +2,66 @@
 layout: 'default'
 title: 'Home'
 ---
+script(type='text/javascript', src='/vendor/jquery/dist/jquery.js')
+script(type='text/javascript', src='/vendor/owl-carousel2/owl.carousel.min.js')
+#owl-demo.owl-carousel.owl-theme(style="position: absolute; left: 0; top: 50px; z-index: 5")
+  .item(style="height: 350px; background: url(/img/slider1.jpg) no-repeat center;")
+    .container
+      .jumbotron(style="margin-top:55px")
+        h1 pimatic
+        p smart home automation for the raspberry pi
+        p
+          a.btn.btn-primary(href="guide/getting-started/installation") Installation
+          a.btn(href="/pages/demo") or try the demo!
+  .item(style="height: 350px; background: url(/img/slider4.svg) no-repeat center;")
+    .container
+      .jumbotron(style="margin-top:55px; display: none;")
+        h3 Control all your Things
+        p Discover over 70 plugins!
+  .item(style="height: 350px; background: url(/img/slider2w.svg) no-repeat center;")
+    .container
+      .jumbotron(style="margin-top:101px; padding: 10px 20px")
+        h3 Automation
+        p(style="font-size: 28px; line-height: 30px; text-align: center;") "#[strong If] my smartphone is present #[strong and] its after 6pm #[strong then] turn the lights on"
+  .item(style="height: 350px; background: url(/img/slider3.png) no-repeat center;")
+    .container
+      .jumbotron(style="margin-top:105px; text-align: center")
+        h3 Web-based Interface
+        p Modern, Responsive, Access from everywhere!
+style.
+  .owl-theme .owl-nav.disabled+.owl-dots {
+    margin-top: -25px;
+    z-index: 11;
+    position: relative;
+  }
 
-// Main hero unit for a primary marketing message or call to action.
-.jumbotron
-  h1 pimatic
-  p smart home automation for the raspberry pi
-  p
-    a.btn.btn-primary(href="guide/getting-started/installation") Installation
-    a.btn(href="/pages/demo") or try the demo!
-.intro
+  .owl-dots span {
+    border: 1px solid #909090;
+  }
+  .owl-item{
+    z-index: 10; /* Fix for OwlCarousel2 Issue #772 (loop flicker) */
+  }
+script(type='text/javascript').
+  $( document ).ready(function() {
+    $("#owl-demo").width($(window).width());
+    $('body > .container').css('position', 'static')
+    $("#owl-demo").owlCarousel({
+      items: 1,
+      loop: true,
+      margin: 10,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
+      dots: true
+    });
+    var owl = $("#owl-demo").data('owlCarousel');
+    $(window).resize(function() {
+      $("#owl-demo").width($(window).width());
+    });
+  });
+.intro(style="margin-top: 360px;")
   div.first
-    div.shariff(data-lang="en" data-services='["facebook", "googleplus", "twitter", "whatsapp", "pinterest"]')
+    div.shariff(data-lang="en", data-services='["facebook", "googleplus", "twitter", "whatsapp", "reddit"]', data-backend-url="http://pimatic.org/shariff-backend/" )
     h2 pimatic 
     :markdown
       is a home automation framework that runs on [node.js](http://nodejs.org). It provides a 

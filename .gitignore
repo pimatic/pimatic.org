@@ -7,3 +7,11 @@ src/files/vendor/components-bootstrap
 src/files/vendor/jquery
 .docpad.db
 src/documents/guide
+.ftppass
+pluginList.json
+src/documents/docs/
+src/documents/plugins/
+src/files/plugins/
+pimatic.org.sublime-project
+pimatic.org.sublime-workspace
+tarball

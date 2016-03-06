@@ -27,7 +27,7 @@ author = (p) ->
 
 div class: "plugin-list", ->
   for plugin in plugins
-    console.log plugin.name
+    #onsole.log plugin.name
     try
       pluginHref = "/plugins/#{plugin.name}"
       div class:"media", ->
