@@ -169,7 +169,7 @@ module.exports = (grunt) ->
           "./tarball/#{p.name}/package/#{p.configSchema}",
           "#{p.dir}/configSchema.json"
         ).then( (obj) =>
-          p.compiledConfigSchema = obj
+          p.compiledConfigSchema = "#{p.dir}/configSchema.json"
         )
       .catch (error) ->
         unless error.code is 'ENOENT'
@@ -182,7 +182,7 @@ module.exports = (grunt) ->
           "./tarball/#{p.name}/package/device-config-schema.coffee",
           "#{p.dir}/deviceConfigSchema.json"
         ).then( (obj) =>
-          p.compiledDeviceConfigSchema = obj
+          p.compiledDeviceConfigSchema = "#{p.dir}/deviceConfigSchema.json"
         )
       .catch (error) ->
         unless error.code is 'ENOENT'
