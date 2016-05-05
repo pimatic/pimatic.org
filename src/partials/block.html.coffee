@@ -41,7 +41,10 @@ article ".block"+(if cssClasses then '.'+cssClasses.join('.') else ""), ->
 							a ".list-group-item", href:h(doc.url), -> h(subPath)							
 						else	
 							active = (if doc.url is document.url then '.active' else '')
-							a ".list-group-item#{active}", href:h(doc.url), -> h(doc.title)
+							if doc.title?
+								a ".list-group-item#{active}", href:h(doc.url), -> h(doc.title)
+							else
+								console.error("Document " + doc.url + " has not title!");
 
 	section ".block-content", content
 
