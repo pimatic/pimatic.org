@@ -42,7 +42,7 @@
     "seedrandom": "^2.3.10",
     "shariff": "^1.18.0",
     "tar": "^1.0.1",
-    "tarball-extract": "0.0.3"
+    "tarball-extract": "github:sweetpi/tarball-extract"
   },
   "devDependencies": {
     "bower": "~1",

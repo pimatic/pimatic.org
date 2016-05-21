@@ -92,7 +92,10 @@ module.exports = (grunt) ->
       )
     )
     .map( (p) ->
-      rimraf("tarball/#{p.name}"); p
+      rimraf("tarball/#{p.name}").then( -> p )
+    )
+    .map( (p) ->
+      rimraf("tarball/#{p.name}.tgz").then( -> p )
     )
     .map( ( (p) ->
       console.log p.name, "=>", p.dist.tarball
@@ -101,6 +104,7 @@ module.exports = (grunt) ->
         p.dist.tarball, file, "tarball/#{p.name}", {}
       ).catch(
         (e) ->
+          console.log("catch")
           console.log(e.stack)
           downloadErrors++
       ).then( (info) ->
@@ -133,6 +137,14 @@ module.exports = (grunt) ->
         p.iconFile = "#{p.dir}/icon.svg"
         fs.writeFileAsync(p.iconFile, svg(p))
       .then -> p
+    .then (plugins) ->
+      srcDir = "src/documents/plugins/"
+      rimraf(srcDir)
+        .then( ->
+          fs.mkdirAsync(srcDir)
+        ).then( ->
+          plugins
+        )
     .map (p) ->
       if p.name is "pimatic" then return p
       # console.log "#{p.name}: Creating plugin page "

@@ -20,6 +20,9 @@ repositoryLink = (p) ->
     href = p.homepage
   return href
 
+npmLink = (p) ->
+  return "https://www.npmjs.com/package/#{p.name}"
+
 author = (p) ->
   href = p.author?.url or p.autor_url or p._npmUser.url
   name = "#{p.author?.name or p.author_name or "?"} (#{p._npmUser.name})"
@@ -42,6 +45,8 @@ div class: "plugin-list", ->
             a class: "author", href: authorInfo.href, -> authorInfo.name
             text ' | '
             a class: "github", href: repositoryLink(plugin), "github"
+            text ' | '
+            a class: "npm", href: npmLink(plugin), "npm"
     catch e
       console.log "Unable to process plugin: #{plugin.name}: #{e}"
       throw e
