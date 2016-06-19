@@ -84,9 +84,9 @@ module.exports = (grunt) ->
           return obj
         )
 
-    request('http://api.pimatic.org/plugins').then( (res) =>
+    request('http://api.pimatic.org/plugins?version=0.9.0').then( (res) =>
       plugins = JSON.parse(res)
-      return request('http://api.pimatic.org/core').then( (res) =>
+      return request('http://api.pimatic.org/core?version=0.9.0').then( (res) =>
         plugins.unshift JSON.parse(res)
         return plugins
       )
