@@ -103,9 +103,23 @@ docpadConfig =
     require: (file) -> require file
 
     author: (p) ->
-      href = p.author?.url or p.autor_url or p._npmUser.url
-      name = "#{p.author?.name or p.author_name or "?"} (#{p._npmUser.name})"
-      return {href, name}
+      name = p.author?.name or p.author_name
+      url = p.author?.url or p.autor_url
+      email = p.author?.email or p.autor_email
+
+
+      maintainer = null
+      for m in p.maintainers
+        if (email? and email is m.email)
+          maintainer = m
+          break
+      if maintainer?
+        if name?
+          name = "#{name} (#{maintainer.name})"
+        else
+          name = maintainer.name
+
+      return {href: url, name: name}
 
     printConfigShema: (schema) ->
       ck = require 'coffeekup'

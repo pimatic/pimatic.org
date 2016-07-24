@@ -23,10 +23,7 @@ repositoryLink = (p) ->
 npmLink = (p) ->
   return "https://www.npmjs.com/package/#{p.name}"
 
-author = (p) ->
-  href = p.author?.url or p.autor_url or p._npmUser.url
-  name = "#{p.author?.name or p.author_name or "?"} (#{p._npmUser.name})"
-  return {href, name}
+author = @author
 
 div class: "plugin-list", ->
   for plugin in plugins
