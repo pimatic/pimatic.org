@@ -25,6 +25,7 @@ $ ->
         tds = $(this).find('td,th')
         $(tds.get(index)).addClass('highlight')
       )
+    $('[name="item_number"]').prop('disabled', (index <= 0))
   updateTable()
   $('#amount').on('change', updateTable)
   $('input[name=item_name]').on('change', updateTable)

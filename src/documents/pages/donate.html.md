@@ -56,8 +56,14 @@ To say thank you for your donation, we will send you a pimatic sticker set for y
 </div>
 <div style="clear: both"></div>
 </div>
+<div class="dash-button-sticker">
+ <div class="checkbox">
+   <label><input type="checkbox" name="item_number" value="+1 amazing dash button sticker">+1 Amazing Dash Button Sticker.</label>
+ </div>
+ <img src="/img/dash-buttons.jpg" alt="Amazing dash button sticker">
+</div>
 <p>
-If you like a special color, please note that in the comment field of the paypal payment process.<br>
+If you like the stickers in a special color or need more than one amazing dash button sticker, please note that in the comment field of the paypal payment process.<br>
 Available colors are: <span class="color" style="background: black; color: white">black</span>, <span class="color" style="background: white; color: black">white</span>, <span class="color" style="background: silver; color: white">silver</span>, <span class="color" style="color: white; background: #2fa4e7">pimatic blue</span>
 </p>
 </div>
