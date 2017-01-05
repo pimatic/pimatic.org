@@ -91,6 +91,8 @@ docpadConfig =
       fs = require 'fs'
       return JSON.parse(fs.readFileSync 'pluginList.json').filter( (p) -> p.name isnt 'pimatic' )
 
+    getAllDevices: -> require('./devices.coffee')
+
     getCore: ->
       fs = require 'fs'
       return JSON.parse(fs.readFileSync 'pluginList.json').filter( (p) -> p.name is 'pimatic' )[0]
