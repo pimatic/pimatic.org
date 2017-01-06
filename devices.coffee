@@ -126,6 +126,8 @@ module.exports = [
     model: 'IT-1500'
     plugin: 'pimatic-homeduino'
     type: 'switch'
+    description: '3-pack socketswitch'
+    recommended: true
     buy: [
       'https://www.amazon.de/dp/B0054IPASK'
     ]
@@ -140,6 +142,9 @@ module.exports = [
     description: 'Build-in switch (receiver)'
     notes: 'Not suitable for LEDs &amp; Energy Saving Lamps, <a href="http://intertechno.at/produkte/empfaenger/schalter/ITL-230.html" target="_blank" rel="nofollow">Info</a>. Although not advertised, can also be used as a dimmer.'
     protocol: '433 MHz'
+    buy: [
+      'https://www.amazon.de/dp/B00392SFG2'
+    ]
   }
   {
     brand: 'Intertechno'
@@ -150,6 +155,9 @@ module.exports = [
     description: 'in-wall remote'
     notes: 'Has wheel codes which need to be <a href="https://github.com/pimatic/pimatic/issues/380" target="_blank" rel="nofollow">translated</a>'
     protocol: '433 MHz'
+    buy: [
+      'https://www.amazon.de/dp/B002S2PQ70'
+    ]
   }
   {
     brand: 'Intertechno'
@@ -157,9 +165,12 @@ module.exports = [
     type: 'switch'
     plugin: 'pimatic-homeduino'
     pluginInfo: 'Switch 1'
-    description: '3-pack socketswitch'
+    description: 'a socketswitch'
     notes: ''
     protocol: '433 MHz'
+    buy: [
+      'https://www.amazon.de/dp/B0056ZJU28'
+    ]
   }
   {
     brand: 'Intertechno'
@@ -594,7 +605,7 @@ module.exports = [
     plugin: 'pimatic-homeduino'
     pluginInfo: 'Shutter 3'
     description: 'Roller shutter switch'
-    notes: 'Wallbox, flush-mounted, deep flush sokcet req’d <a href="http://www.ebay.de/itm/Funkempfanger-nachrusten-f-Rolladen-Jalousie-Markisenmotoren-/171356816049?pt=LH_DefaultDomain_77&amp;hash=item27e5a982b1" target="_blank" rel="nofollow">Buy</a>. Keeps config after power-loss, external push-button'
+    notes: 'Wallbox, flush-mounted, deep flush socket req’d <a href="http://www.ebay.de/itm/Funkempfanger-nachrusten-f-Rolladen-Jalousie-Markisenmotoren-/171356816049?pt=LH_DefaultDomain_77&amp;hash=item27e5a982b1" target="_blank" rel="nofollow">Buy</a>. Keeps config after power-loss, external push-button'
     protocol: '433 MHz'
   }
   {
@@ -881,6 +892,10 @@ module.exports = [
     plugin: 'pimatic-max'
     description: 'Radiator thermostat'
     notes: 'Control your radiator'
+    recommended: true
+    buy: [
+      'https://www.amazon.de/dp/B004W1PSNC'
+    ]
   }
   {
     brand: 'EQ-3/ELV'
@@ -890,6 +905,10 @@ module.exports = [
     plugin: 'pimatic-max'
     description: 'Thermostat wall remote'
     notes: 'Wireless wall remote to control radiators or switches in pimatic'
+    recommended: true
+    buy: [
+      'https://www.amazon.de/dp/B00AG8PSGC'
+    ]
   }
   {
     brand: 'EQ-3/ELV'
@@ -899,5 +918,9 @@ module.exports = [
     plugin: 'pimatic-max'
     description: 'Radiator thermostat Plus+Version'
     notes: 'Control your radiator'
+    recommended: true
+    buy: [
+      'https://www.amazon.de/dp/B00B6ZY23E'
+    ]
   }
 ]

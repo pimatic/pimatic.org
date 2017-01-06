@@ -14,6 +14,12 @@ buyTitle = (url) ->
   parsed = urlParse(url)
   return parsed.hostname
 
+buyHref = (url) ->
+  parsed = urlParse(url)
+  if parsed.hostname is 'www.amazon.de'
+    url += '?tag=pimatic-21'
+  return url
+
 devicesByType = {}
 for d in @getAllDevices()
   if typeof devicesByType[d.type] is "undefined"
@@ -49,7 +55,7 @@ div class: "devices-list", ->
     h2 id: type, types[type]
     table class: "table table-striped", ->
       thead ->
-        tr ->
+        tr class: (if devices[0].recommended then 'first-recommended' else ''), ->
           th class: 'device-name', "Device"
           th class: 'device-protocol', "Protocol"
           th class: 'device-plugin', "Plugin"
@@ -58,9 +64,13 @@ div class: "devices-list", ->
         for d in devices
           try
             pluginHref = "/plugins/#{d.plugin}"
-            tr ->
+            tr class: (if d.recommended then 'recommended' else ''), ->
               td class: 'device-name', ->
-                h4 d.brand + " " + d.model
+                h4 ->
+                  text d.brand + " " + d.model
+                  if d.recommended
+                    text ' '
+                    span class: 'badge', 'recommended'
                 p d.description
                 if d.notes
                   div class: 'notes', ->
@@ -68,10 +78,12 @@ div class: "devices-list", ->
               td class: 'device-protocol',  d.protocol
               td class: 'device-plugin', ->
                 a class: "plugin", href: pluginHref, d.plugin
+                if d.pluginInfo
+                  text '<br>(' + d.pluginInfo + ')'
               td class: 'device-buy', ->
                 if d.buy
                   for url in d.buy
-                    a class: "buy", href: url, buyTitle(url)
+                    a class: "buy", href: buyHref(url), buyTitle(url)
           catch e
             console.log "Unable to process device: #{JSON.stringify(d)}: #{e}"
             throw e
