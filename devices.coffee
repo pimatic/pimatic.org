@@ -128,6 +128,8 @@ module.exports = [
     type: 'switch'
     description: '3-pack socketswitch'
     recommended: true
+    imageLink: 'https://www.amazon.de/dp/B0054IPASK'
+    image: 'https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0054IPASK&Format=_SL160_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=pimatic-21'
     buy: [
       'https://www.amazon.de/dp/B0054IPASK'
     ]
@@ -889,7 +891,7 @@ module.exports = [
     model: 'MAX! 99017'
     type: 'heating'
     protocol: ' 868,35 MHz'
-    plugin: 'pimatic-max'
+    plugin: ['pimatic-max', 'pimatic-maxcul']
     description: 'Radiator thermostat'
     notes: 'Control your radiator'
     recommended: true
@@ -902,7 +904,7 @@ module.exports = [
     model: 'MAX! 99107'
     type: 'heating'
     protocol: ' 868,35 MHz'
-    plugin: 'pimatic-max'
+    plugin: ['pimatic-max', 'pimatic-maxcul']
     description: 'Thermostat wall remote'
     notes: 'Wireless wall remote to control radiators or switches in pimatic'
     recommended: true
@@ -915,7 +917,7 @@ module.exports = [
     model: 'MAX! 105936'
     type: 'heating'
     protocol: ' 868,35 MHz'
-    plugin: 'pimatic-max'
+    plugin: ['pimatic-max', 'pimatic-maxcul']
     description: 'Radiator thermostat Plus+Version'
     notes: 'Control your radiator'
     recommended: true

@@ -6,6 +6,7 @@ pageOrder: 1
 menu: true
 ###
 
+naturalCompare = @require('natural-compare-lite')
 urlParse = @require('url').parse
 
 capitalize = (s) -> s[0].toUpperCase() + s.slice(1)
@@ -20,8 +21,15 @@ buyHref = (url) ->
     url += '?tag=pimatic-21'
   return url
 
+deviceName = (d) => d.brand + " " + d.model
+
+normalize = (d) =>
+  unless Array.isArray d.plugin
+    d.plugin = [d.plugin]
+
 devicesByType = {}
 for d in @getAllDevices()
+  normalize(d)
   if typeof devicesByType[d.type] is "undefined"
     devicesByType[d.type] = []
   devicesByType[d.type].push d
@@ -51,7 +59,7 @@ div class: "devices-list", ->
     devices = devicesByType[type];
     if typeof devices is "undefined" or devices.length is 0
       continue
-    devices.sort( (a, b) -> if (a.brand + a.model) < (b.brand + b.model) then -1 else 1 )
+    devices.sort( (a, b) -> naturalCompare(deviceName(a), deviceName(b)) )
     h2 id: type, types[type]
     table class: "table table-striped", ->
       thead ->
@@ -63,11 +71,13 @@ div class: "devices-list", ->
       tbody ->
         for d in devices
           try
-            pluginHref = "/plugins/#{d.plugin}"
             tr class: (if d.recommended then 'recommended' else ''), ->
               td class: 'device-name', ->
+                if d.image? and d.imageLink?
+                  a class: 'device-image', href: d.imageLink, ->
+                    img alt: '', src: d.image
                 h4 ->
-                  text d.brand + " " + d.model
+                  text deviceName(d)
                   if d.recommended
                     text ' '
                     span class: 'badge', 'recommended'
@@ -77,7 +87,11 @@ div class: "devices-list", ->
                     text d.notes
               td class: 'device-protocol',  d.protocol
               td class: 'device-plugin', ->
-                a class: "plugin", href: pluginHref, d.plugin
+                for plugin, i in d.plugin
+                  pluginHref = "/plugins/#{plugin}"
+                  a class: "plugin", href: pluginHref, plugin
+                  if i isnt d.plugin.length - 1
+                    text ', '
                 if d.pluginInfo
                   text '<br>(' + d.pluginInfo + ')'
               td class: 'device-buy', ->
