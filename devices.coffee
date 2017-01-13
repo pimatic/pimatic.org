@@ -128,7 +128,7 @@ module.exports = [
     type: 'switch'
     description: '3-pack socketswitch'
     recommended: true
-    imageLink: 'https://www.amazon.de/dp/B0054IPASK'
+    imageLink: 'https://www.amazon.de/gp/product/B0054IPASK/ref=as_li_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B0054IPASK&linkCode=as2&tag=pimatic-21'
     image: 'https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0054IPASK&Format=_SL160_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=pimatic-21'
     buy: [
       'https://www.amazon.de/dp/B0054IPASK'
@@ -895,6 +895,8 @@ module.exports = [
     description: 'Radiator thermostat'
     notes: 'Control your radiator'
     recommended: true
+    imageLink: 'https://www.amazon.de/gp/product/B004W1PSNC/ref=as_li_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B004W1PSNC&linkCode=as2&tag=pimatic-21'
+    image: 'https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B004W1PSNC&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=pimatic-21'
     buy: [
       'https://www.amazon.de/dp/B004W1PSNC'
     ]
@@ -918,11 +920,41 @@ module.exports = [
     type: 'heating'
     protocol: ' 868,35 MHz'
     plugin: ['pimatic-max', 'pimatic-maxcul']
-    description: 'Radiator thermostat Plus+Version'
+    description: 'Radiator thermostat Plus Version'
     notes: 'Control your radiator'
     recommended: true
+    imageLink: 'https://www.amazon.de/gp/product/B00B6ZY23E/ref=as_li_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B00B6ZY23E&linkCode=as2&tag=pimatic-21'
+    image: 'https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00B6ZY23E&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=pimatic-21'
     buy: [
       'https://www.amazon.de/dp/B00B6ZY23E'
+    ]
+  }
+  {
+    brand: 'amazon'
+    model: 'Dash Button'
+    type: 'switch'
+    protocol: ' wifi'
+    plugin: ['pimatic-amazing-dash-button', 'pimatic-dash-button']
+    description: 'Wifi Button'
+    recommended: true
+    imageLink: 'https://www.amazon.de/gp/product/B01I297GPW/ref=as_li_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B01I297GPW&linkCode=as2&tag=pimatic-21'
+    image: 'https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B01I297GPW&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=pimatic-21'
+    buy: [
+      'https://www.amazon.de/gp/product/B01I297GPW'
+    ]
+  }
+  {
+    brand: 'AVM'
+    model: 'FRITZ!DECT 200'
+    type: 'switch'
+    protocol: ' DECT'
+    plugin: ['pimatic-fritz']
+    description: 'Fritz!DECT 200 outlet'
+    recommended: true
+    imageLink: 'https://www.amazon.de/gp/product/B00AQ9E77M/ref=as_li_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B00AQ9E77M&linkCode=as2&tag=pimatic-21'
+    image: 'https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00AQ9E77M&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=pimatic-21'
+    buy: [
+      'https://www.amazon.de/gp/product/B00AQ9E77M'
     ]
   }
 ]
