@@ -957,4 +957,32 @@ module.exports = [
       'https://www.amazon.de/gp/product/B00AQ9E77M'
     ]
   }
+  {
+    brand: 'Edimax'
+    model: 'SP-2101W'
+    type: 'switch'
+    protocol: ' wifi'
+    plugin: ['pimatic-edimax']
+    description: 'Edimax Wi-Fi Smart Plug with Energy Management (SP-2101W)'
+    recommended: true
+    imageLink: 'https://www.amazon.de/Equip-Funksteckdosen-Wireless-Strommesser-SP-2101W/dp/B00N4OBJAO/ref=sr_1_1?ie=UTF8&qid=1484569871&sr=8-1&keywords=SP-2101&tag=pimatic-21'
+    image: 'https://images-na.ssl-images-amazon.com/images/I/71tPlg8xhOL._SY679_.jpg'
+    buy: [
+      'https://www.amazon.de/gp/product/B00N4OBJAO'
+    ]
+  }
+  {
+    brand: 'Edimax'
+    model: 'SP-1101W'
+    type: 'switch'
+    protocol: ' wifi'
+    plugin: ['pimatic-edimax']
+    description: 'Edimax Wi-Fi Smart Plug (SP-1101W)'
+    recommended: true
+    imageLink: 'https://www.amazon.de/Edimax-SP-1101W-Smart-Intelligente-Steuerung/dp/B00H3NSY8W/ref=sr_1_1?ie=UTF8&qid=1484570044&sr=8-1&keywords=SP-1101'
+    image: 'https://images-na.ssl-images-amazon.com/images/I/71tPlg8xhOL._SY679_.jpg'
+    buy: [
+      'https://www.amazon.de/gp/product/B00H3NSY8W'
+    ]
+  }
 ]
