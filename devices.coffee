@@ -340,7 +340,7 @@ module.exports = [
     type: 'switch'
     plugin: 'pimatic-homeduino'
     pluginInfo: 'Switch 1'
-    description: 'Doorbel'
+    description: 'Doorbell'
     notes: 'Can only receive ‘on’ state'
     protocol: '433 MHz'
   }
@@ -983,6 +983,22 @@ module.exports = [
     image: 'https://images-na.ssl-images-amazon.com/images/I/71tPlg8xhOL._SY679_.jpg'
     buy: [
       'https://www.amazon.de/gp/product/B00H3NSY8W'
+    ]
+  }
+  {
+    brand: 'Elro'
+    model: 'DB286A'
+    type: 'sensor'
+    plugin: 'pimatic-homeduino'
+    pluginInfo: 'Pir 3'
+    description: 'Doorbell with 16 tunes'
+    recommended: false
+    notes: 'Device is autodiscovered as Inter-Union (pir)'
+    protocol: '433 MHz'
+    imagelink: 'https://www.amazon.de/gp/product/B005DDYL1I'
+    image: 'https://images-eu.ssl-images-amazon.com/images/I/415C-DvTHVL._SL110_.jpg'
+    buy: [
+      'https://www.amazon.de/gp/product/B005DDYL1I'
     ]
   }
 ]
