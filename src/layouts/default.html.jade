@@ -95,19 +95,6 @@ html(lang="en")
           ul.nav.navbar-nav
             li.dropdown
               a.dropdown-toggle(href='#', data-toggle='dropdown')
-                span.fa.fa-book
-                |  Guide
-                b.caret
-                ul.dropdown-menu
-                  - function capitalize(s){ return s.toLowerCase().replace( /\b./g, function(a){ return a.toUpperCase(); } );};
-                  each section in [ ['getting-started', 'Getting Started'], ['usage', 'Usage'], ['api', 'API'], ['development', 'Development']]
-                    - url = "/guide/" + section[0]
-                    - title = section[1]
-                    - clazz = (document.relativePath.indexOf(url + '/') == 0) ? 'active' : null
-                    li(class=clazz)
-                      a(href=url, property="dc:title")=title
-            li.dropdown
-              a.dropdown-toggle(href='#', data-toggle='dropdown')
                 span.fa.fa-file-text
                 |  Docs
                 b.caret
@@ -136,6 +123,10 @@ html(lang="en")
               a(href="/pages/donate")
                 span.fa.fa-heart
                 |  Support Us
+            li.wiki
+              a(href='https://pimatic.teamemo.com')
+                span.fa.fa-book
+                |  Wiki
             li.forum
               a(href="//forum.pimatic.org")
                 span.fa.fa-comments
