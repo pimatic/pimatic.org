@@ -154,6 +154,6 @@ Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets de
 
 #### **Fragen an den Datenschutzbeauftragten**
 
-Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail oder wenden Sie sich direkt an die für den Datenschutz verantwortliche Person in unserer Organisation:
+Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail oder wenden Sie sich direkt an die oben genannte Person.
 
 _Die Datenschutzerklärung wurde mit dem_ [_Datenschutzerklärungs-Generator der activeMind AG erstellt_](https://www.activemind.de/datenschutz/datenschutzhinweis-generator/)_._
