@@ -1,6 +1,7 @@
 module.exports = (grunt) ->
 
   grunt.initConfig
+    tarball: grunt.file.mkdir "tarball"
     pkg: grunt.file.readJSON "package.json"
     "ftp-deploy":
       web:
