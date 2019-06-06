@@ -36,7 +36,7 @@ module.exports = (grunt) ->
       ]
       opts: {stdio: 'inherit'}
     , done = ->
-      grunt.log.ok "copyed api.coffee"
+      grunt.log.ok "copied api.coffee"
 
 
   grunt.registerTask "copy-docs", =>
@@ -58,7 +58,7 @@ module.exports = (grunt) ->
         ]
         opts: {stdio: 'inherit'}
       , done = ->
-        grunt.log.ok "copyed #{p}"
+        grunt.log.ok "copied #{p}"
 
   grunt.registerTask "plugins", ->
     done = this.async()
