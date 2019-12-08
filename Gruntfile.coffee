@@ -1,6 +1,7 @@
 module.exports = (grunt) ->
 
   grunt.initConfig
+    tarball: grunt.file.mkdir "tarball"
     pkg: grunt.file.readJSON "package.json"
     "ftp-deploy":
       web:
@@ -16,7 +17,7 @@ module.exports = (grunt) ->
   grunt.registerTask "docpad", ->
     done = this.async()
     docpad = grunt.util.spawn(
-      cmd: "docpad"
+      cmd: "./node_modules/.bin/docpad"
       args: [
         "generate"
         "--env", "static"
@@ -35,7 +36,7 @@ module.exports = (grunt) ->
       ]
       opts: {stdio: 'inherit'}
     , done = ->
-      grunt.log.ok "copyed api.coffee"
+      grunt.log.ok "copied api.coffee"
 
 
   grunt.registerTask "copy-docs", =>
@@ -57,7 +58,7 @@ module.exports = (grunt) ->
         ]
         opts: {stdio: 'inherit'}
       , done = ->
-        grunt.log.ok "copyed #{p}"
+        grunt.log.ok "copied #{p}"
 
   grunt.registerTask "plugins", ->
     done = this.async()

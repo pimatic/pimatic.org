@@ -790,7 +790,7 @@ module.exports = [
     plugin: 'pimatic-homeduino'
     pluginInfo: 'Weather 1'
     description: 'Measures temperature and humidity'
-    notes: 'broadcasts every 30(!) seconds, weak sender <a href="http://www.ebay.nl/itm/LogiLink-WS0002-Wetterstation-/371183517420?pt=DE_Computer_Sonstige&amp;hash=item566c42feec" target="_blank" rel="nofollow">BUY</a>'
+    notes: 'broadcasts every 30(!) seconds, weak sender'
     protocol: '433 MHz'
   }
   {
@@ -830,7 +830,7 @@ module.exports = [
     plugin: 'pimatic-homeduino'
     pluginInfo: 'Weather 11'
     description: 'Measures temperature and humidity'
-    notes: '<a href="http://www.blokker.nl/nl/blknl/uit-de-folder-3/xiron-weerstation-1" target="_blank" rel="nofollow">BUY</a> here or on eBay'
+    notes: ''
     protocol: '433 MHz'
   }
   {
