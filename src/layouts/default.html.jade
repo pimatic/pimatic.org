@@ -11,9 +11,6 @@ if document.url === '/'
   - styles.add(['/vendor/owl-carousel2/assets/owl.theme.default.min.css']);
   - scripts.add(["/vendor/shariff/shariff.complete.js"])
   - styles.add(["/vendor/shariff/shariff.complete.css"])
-else if document.url.indexOf('/donate') >= -1
-  - scripts.add(["/vendor/jquery/dist/jquery.js"])
-  - scripts.add(["/scripts/donate.js"])
 else
   - scripts.add(["/vendor/jquery/dist/jquery.js"])
 
@@ -30,8 +27,8 @@ else
 - styles.add(["/styles/style.css"])
 - scripts.add(["/scripts/script.js"])
 - scripts.add(["/scripts/piwik.js"])
-if document.layout == 'docs' 
-  - styles.add(["/styles/docs.css"]) 
+if document.layout == 'docs'
+  - styles.add(["/styles/docs.css"])
 
 doctype html
 html(lang="en")
@@ -68,7 +65,7 @@ html(lang="en")
     link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css')
     //if lt IE 9
       link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css')
- 
+
     //- Shims: IE6-8 support of HTML5 elements
     //if lt IE 9
       script(async src="http://html5shim.googlecode.com/svn/trunk/html5.js")
