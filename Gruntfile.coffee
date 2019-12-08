@@ -17,7 +17,7 @@ module.exports = (grunt) ->
   grunt.registerTask "docpad", ->
     done = this.async()
     docpad = grunt.util.spawn(
-      cmd: "docpad"
+      cmd: "./node_modules/.bin/docpad"
       args: [
         "generate"
         "--env", "static"
